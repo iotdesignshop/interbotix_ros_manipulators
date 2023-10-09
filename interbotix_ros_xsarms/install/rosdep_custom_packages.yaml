@@ -1,5 +1,5 @@
 python3-kivy2:
   ubuntu:
     pip:
-      packages: ['kivy[base]==2.2.1']
+      packages: ['kivy==2.2.1']
   
