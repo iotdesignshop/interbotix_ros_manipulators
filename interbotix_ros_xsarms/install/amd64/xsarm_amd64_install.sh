@@ -237,6 +237,8 @@ function install_ros1() {
     sudo cp 99-interbotix-udev.rules /etc/udev/rules.d/
     sudo udevadm control --reload-rules && sudo udevadm trigger
     cd "$INSTALL_PATH"
+    echo "yaml https://raw.githubusercontent.com/iotdesignshop/interbotix_ros_manipulators/humble/interbotix_ros_xsarms/install/rosdep_custom_packages.yaml" | sudo tee /etc/ros/rosdep/sources.list.d/20-custom.list
+    rosdep update
     rosdep install --from-paths src --ignore-src -r -y
     catkin_make
     if catkin_make; then
