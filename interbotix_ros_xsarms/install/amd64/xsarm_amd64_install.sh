@@ -216,6 +216,8 @@ function install_ros1() {
     git clone -b "$ROS_DISTRO_TO_INSTALL" https://github.com/Interbotix/interbotix_ros_core.git
     git clone -b "$ROS_DISTRO_TO_INSTALL" https://github.com/Interbotix/interbotix_ros_manipulators.git
     git clone -b "$ROS_DISTRO_TO_INSTALL" https://github.com/Interbotix/interbotix_ros_toolboxes.git
+    git clone -b "$ROS_DISTRO_TO_INSTALL" https://github.com/iotdesignshop/simplified_launch.git
+    git clone -b "$ROS_DISTRO_TO_INSTALL" https://github.com/iotdesignshop/simplified_dro.git
     rm                                                                                              \
       interbotix_ros_core/interbotix_ros_xseries/CATKIN_IGNORE                                      \
       interbotix_ros_manipulators/interbotix_ros_xsarms/CATKIN_IGNORE                               \
