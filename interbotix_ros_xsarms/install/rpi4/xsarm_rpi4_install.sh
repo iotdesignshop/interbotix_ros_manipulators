@@ -150,18 +150,19 @@ function check_ubuntu_version() {
 function install_essential_packages() {
   # Install necessary core packages
   sudo apt-get install -yq curl git
-  if [ $ROS_VERSION_TO_INSTALL == 2 ]; then
-    sudo pip3 install transforms3d
-  fi
   if [ $PY_VERSION == 2 ]; then
-    sudo apt-get install -yq install python-pip
+    sudo apt-get install -yq python-pip
     python -m pip install modern_robotics
   elif [ $PY_VERSION == 3 ]; then
-    sudo apt-get install -yq install python3-pip
+    sudo apt-get install -yq python3-pip
     python3 -m pip install modern_robotics
   else
     failed "Something went wrong. PY_VERSION='$PY_VERSION', should be 2 or 3."
   fi
+  if [ $ROS_VERSION_TO_INSTALL == 2 ]; then
+    sudo pip3 install transforms3d
+  fi
+  
 }
 
 function install_ros1() {
