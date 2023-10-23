@@ -351,6 +351,20 @@ function install_ros2() {
     else
       failed "Failed to build Interbotix Arm ROS 2 Packages."
     fi
+
+    # Create the update script to pull from all the repos
+    echo -e "#!/usr/bin/env bash \n\n" > update_source.sh
+    echo -e "pushd src/interbotix_ros_core && git pull && popd" >> update_source.sh
+    echo -e "pushd src/interbotix_ros_manipulators && git pull && popd" >> update_source.sh
+    echo -e "pushd src/interbotix_ros_toolboxes && git pull && popd" >> update_source.sh
+    echo -e "pushd src/simplified_launch && git pull && popd" >> update_source.sh
+    echo -e "pushd src/simplified_dro && git pull && popd" >> update_source.sh
+    echo -e "pushd src/moveit_visual_tools && git pull && popd" >> update_source.sh
+    echo -e "rosdep update" >> update_source.sh
+    echo -e "rosdep install --from-paths src --ignore-src -r -y" >> update_source.sh
+    echo -e "colcon build" >> update_source.sh
+    chmod +x update_source.sh
+
   fi
 }
 
