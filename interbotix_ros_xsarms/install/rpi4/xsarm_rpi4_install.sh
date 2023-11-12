@@ -273,8 +273,7 @@ function install_ros2() {
     git clone -b "$ROS_DISTRO_TO_INSTALL" https://github.com/iotdesignshop/interbotix_ros_core.git
     git clone -b "$ROS_DISTRO_TO_INSTALL" https://github.com/iotdesignshop/interbotix_ros_manipulators.git
     git clone -b "$ROS_DISTRO_TO_INSTALL" https://github.com/iotdesignshop/interbotix_ros_toolboxes.git
-    git clone -b "$ROS_DISTRO_TO_INSTALL" https://github.com/iotdesignshop/simplified_launch.git
-    git clone -b "$ROS_DISTRO_TO_INSTALL" https://github.com/iotdesignshop/simplified_dro.git
+    git clone -b "$ROS_DISTRO_TO_INSTALL" https://github.com/iotdesignshop/simplified_robotics.git
     # TODO(lsinterbotix) remove below when moveit_visual_tools is available in apt repo
     git clone -b ros2 https://github.com/ros-planning/moveit_visual_tools.git
     rm                                                                                                  \
@@ -304,8 +303,7 @@ function install_ros2() {
     echo -e "pushd src/interbotix_ros_core && git pull && popd" >> update_source.sh
     echo -e "pushd src/interbotix_ros_manipulators && git pull && popd" >> update_source.sh
     echo -e "pushd src/interbotix_ros_toolboxes && git pull && popd" >> update_source.sh
-    echo -e "pushd src/simplified_launch && git pull && popd" >> update_source.sh
-    echo -e "pushd src/simplified_dro && git pull && popd" >> update_source.sh
+    echo -e "pushd src/simplified_robotics && git pull && popd" >> update_source.sh
     echo -e "pushd src/moveit_visual_tools && git pull && popd" >> update_source.sh
     echo -e "rosdep update" >> update_source.sh
     echo -e "rosdep install --from-paths src --ignore-src -r -y" >> update_source.sh
