@@ -197,6 +197,9 @@ class XSArmRobot(InterbotixManipulatorXS):
             self.update_T_yb()
             self.arm.set_trajectory_time(moving_time=0.2, accel_time=0.1)
 
+            # Clear the pose_cmd - we don't want this to repeat if it stays set
+            self.joy_msg.pose_cmd = 0
+
         # Check the waist_cmd
         if (msg.waist_cmd != 0):
             waist_position = self.arm.get_single_joint_command('waist')
